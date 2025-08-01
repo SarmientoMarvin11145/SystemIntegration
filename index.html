@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JR Rodriguez Meat Dealer - Welcome</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner">
+            <i class="fas fa-meat"></i>
+            <p>Loading JR Rodriguez Meat Dealer...</p>
+        </div>
+    </div>
+
+    <!-- Welcome Page -->
+    <div id="welcome-page" class="page active">
+        <header class="welcome-header">
+            <div class="container">
+                <div class="logo">
+                    <i class="fas fa-meat"></i>
+                    <h1>JR Rodriguez</h1>
+                    <p>Meat Dealer</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="welcome-main">
+            <div class="hero-section">
+                <div class="container">
+                    <div class="hero-content">
+                        <h2>Fresh Quality Meat</h2>
+                        <p>Serving Daet, Camarines Norte for over 50 years</p>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>50+ Years</span>
+                                <small>Experience</small>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-leaf"></i>
+                                <span>100%</span>
+                                <small>Fresh</small>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-truck"></i>
+                                <span>Fast</span>
+                                <small>Delivery</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-section">
+                <div class="container">
+                    <h3>Why Choose Us?</h3>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>Mobile Ordering</h4>
+                            <p>Order fresh meat from anywhere, anytime</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-percentage"></i>
+                            <h4>Bulk Discounts</h4>
+                            <p>Special prices for large orders</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-award"></i>
+                            <h4>Premium Quality</h4>
+                            <p>Freshly butchered, high-quality pork</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-users"></i>
+                            <h4>Trusted by Many</h4>
+                            <p>Restaurants, caterers, and households</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <div class="container">
+                    <div class="cta-content">
+                        <h3>Ready to Order?</h3>
+                        <p>Join thousands of satisfied customers</p>
+                        <div class="cta-buttons">
+                            <button class="btn btn-primary" onclick="showPage('login')">
+                                <i class="fas fa-sign-in-alt"></i>
+                                Login
+                            </button>
+                            <button class="btn btn-secondary" onclick="showPage('signup')">
+                                <i class="fas fa-user-plus"></i>
+                                Sign Up
+                            </button>
+                        </div>
+                        <p class="guest-option">
+                            <a href="#" onclick="showPage('products')" class="guest-link">
+                                <i class="fas fa-eye"></i>
+                                Browse as Guest
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="welcome-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="contact-info">
+                        <h4>Contact Us</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Pamilihang Bayan ng Daet, Vinzons Avenue, Daet, Camarines Norte</p>
+                        <p><i class="fas fa-phone"></i> +63 XXX XXXX XXX</p>
+                        <p><i class="fas fa-envelope"></i> info@jrrodriguez.com</p>
+                    </div>
+                    <div class="business-hours">
+                        <h4>Business Hours</h4>
+                        <p>Monday - Saturday: 6:00 AM - 6:00 PM</p>
+                        <p>Sunday: 6:00 AM - 12:00 PM</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 JR Rodriguez Meat Dealer. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Login Page -->
+    <div id="login-page" class="page">
+        <div class="auth-container">
+            <div class="auth-header">
+                <button class="back-btn" onclick="showPage('welcome')">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="logo-small">
+                    <i class="fas fa-meat"></i>
+                    <span>JR Rodriguez</span>
+                </div>
+            </div>
+
+            <div class="auth-form">
+                <h2>Welcome Back</h2>
+                <p>Sign in to your account</p>
+
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="login-email">Email or Phone</label>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="login-email" name="email" required 
+                                   placeholder="Enter your email or phone number">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="login-password" name="password" required 
+                                   placeholder="Enter your password">
+                            <button type="button" class="toggle-password" onclick="togglePassword('login-password')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="remember">
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Sign In
+                    </button>
+                </form>
+
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+
+                <div class="social-login">
+                    <button class="btn btn-google">
+                        <i class="fab fa-google"></i>
+                        Continue with Google
+                    </button>
+                    <button class="btn btn-facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        Continue with Facebook
+                    </button>
+                </div>
+
+                <div class="auth-switch">
+                    <p>Don't have an account? 
+                        <a href="#" onclick="showPage('signup')">Sign up here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Page -->
+    <div id="signup-page" class="page">
+        <div class="auth-container">
+            <div class="auth-header">
+                <button class="back-btn" onclick="showPage('welcome')">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="logo-small">
+                    <i class="fas fa-meat"></i>
+                    <span>JR Rodriguez</span>
+                </div>
+            </div>
+
+            <div class="auth-form">
+                <h2>Create Account</h2>
+                <p>Join our community of satisfied customers</p>
+
+                <form id="signup-form" onsubmit="handleSignup(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="signup-firstname">First Name</label>
+                            <div class="input-group">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="signup-firstname" name="firstname" required 
+                                       placeholder="First name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-lastname">Last Name</label>
+                            <div class="input-group">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="signup-lastname" name="lastname" required 
+                                       placeholder="Last name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-email">Email Address</label>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="signup-email" name="email" required 
+                                   placeholder="Enter your email address">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-phone">Phone Number</label>
+                        <div class="input-group">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="signup-phone" name="phone" required 
+                                   placeholder="+63 XXX XXX XXXX">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-address">Address</label>
+                        <div class="input-group">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <textarea id="signup-address" name="address" required 
+                                      placeholder="Complete address for delivery"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-customer-type">Customer Type</label>
+                        <div class="input-group">
+                            <i class="fas fa-users"></i>
+                            <select id="signup-customer-type" name="customer_type" required>
+                                <option value="">Select customer type</option>
+                                <option value="household">Household</option>
+                                <option value="restaurant">Restaurant</option>
+                                <option value="catering">Catering Service</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="signup-password" name="password" required 
+                                   placeholder="Create a strong password">
+                            <button type="button" class="toggle-password" onclick="togglePassword('signup-password')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-bar">
+                                <div class="strength-fill"></div>
+                            </div>
+                            <small class="strength-text">Password strength</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-confirm-password">Confirm Password</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="signup-confirm-password" name="confirm_password" required 
+                                   placeholder="Confirm your password">
+                            <button type="button" class="toggle-password" onclick="togglePassword('signup-confirm-password')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="terms" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="marketing">
+                            <span class="checkmark"></span>
+                            Send me promotions and special offers
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="fas fa-user-plus"></i>
+                        Create Account
+                    </button>
+                </form>
+
+                <div class="auth-switch">
+                    <p>Already have an account? 
+                        <a href="#" onclick="showPage('login')">Sign in here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products/Menu Page -->
+    <div id="products-page" class="page">
+        <header class="app-header">
+            <div class="container">
+                <div class="header-content">
+                    <button class="menu-toggle" onclick="toggleSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="logo-small">
+                        <i class="fas fa-meat"></i>
+                        <span>JR Rodriguez</span>
+                    </div>
+                    <div class="header-actions">
+                        <button class="header-btn" onclick="showCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </button>
+                        <button class="header-btn user-btn" onclick="toggleUserMenu()">
+                            <i class="fas fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <span class="user-name">Guest User</span>
+                        <span class="user-type">Browser</span>
+                    </div>
+                </div>
+                <button class="close-sidebar" onclick="toggleSidebar()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" onclick="setActiveNav(this)">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-item" onclick="setActiveNav(this)">
+                    <i class="fas fa-list"></i>
+                    <span>Categories</span>
+                </a>
+                <a href="#" class="nav-item" onclick="setActiveNav(this)">
+                    <i class="fas fa-heart"></i>
+                    <span>Favorites</span>
+                </a>
+                <a href="#" class="nav-item" onclick="setActiveNav(this)">
+                    <i class="fas fa-history"></i>
+                    <span>Order History</span>
+                </a>
+                <a href="#" class="nav-item" onclick="setActiveNav(this)">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="#" class="nav-item" onclick="setActiveNav(this)">
+                    <i class="fas fa-headset"></i>
+                    <span>Support</span>
+                </a>
+                <div class="nav-divider"></div>
+                <a href="#" class="nav-item" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </div>
+
+        <main class="main-content">
+            <div class="container">
+                <!-- Search and Filters -->
+                <div class="search-section">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search for meat cuts..." onkeyup="searchProducts(this.value)">
+                    </div>
+                    <div class="filters">
+                        <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
+                        <button class="filter-btn" onclick="filterProducts('fresh', this)">Fresh Cuts</button>
+                        <button class="filter-btn" onclick="filterProducts('ground', this)">Ground Meat</button>
+                        <button class="filter-btn" onclick="filterProducts('specialty', this)">Specialty</button>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="products-grid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Cart Sidebar -->
+        <div id="cart-sidebar" class="cart-sidebar">
+            <div class="cart-header">
+                <h3>Your Order</h3>
+                <button class="close-cart" onclick="hideCart()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-content">
+                <div id="cart-items" class="cart-items">
+                    <!-- Cart items will be displayed here -->
+                </div>
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">₱0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery Fee:</span>
+                        <span id="delivery-fee">₱50.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="cart-total">₱50.00</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-full" onclick="proceedToCheckout()">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
